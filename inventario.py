@@ -1,6 +1,14 @@
 # Se define 3 variables para un artículo
-nombre_articulo = input("Ingrese el nombre del articulo: ")
-precio_unitario = input("Ingrese el precio del articulo: ")
-stock_actual = input("Ingrese la cantidad del articulo: ")
-valor_total = precio_unitario*stock_actual
-print("El precio total del articulo es: ", valor_total)
+nombre_articulo = "Teclado Mecánico"
+precio_unitario = 50.5
+stock_actual = 5  # Cambia este número para probar
+
+print(f"--- Sistema de Inventario: {nombre_articulo} ---")
+
+# Lógica de decisión
+if stock_actual > 0:
+    print("Estado: ✅ Producto disponible para la venta.")
+    valor_total = precio_unitario * stock_actual
+    print(f"Valor total en almacén: ${valor_total}")
+else:
+    print("Estado: ❌ Alerta: Producto agotado.")
