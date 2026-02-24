@@ -1,7 +1,7 @@
 # Se define 3 variables para un artículo
 nombre_articulo = "Teclado Mecánico"
 precio_unitario = 50.5
-stock_actual = 5  # Cambia este número para probar
+stock_actual = 10  # Cambia este número para probar
 
 print(f"--- Sistema de Inventario: {nombre_articulo} ---")
 
