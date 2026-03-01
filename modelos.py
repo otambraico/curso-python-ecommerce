@@ -20,6 +20,9 @@ class Producto:
         self.stock += cantidad
         print(f"el stock actual es {self.stock}")
 
+    def identificar(self):
+        print(f"Midirección en memoria es: {self}")
+
 # --- Probando nuestra Clase ---
 laptop = Producto("MacBook Air", 1200, 5)
 print(laptop.mostrar_info())
@@ -29,3 +32,9 @@ print(laptop.mostrar_info())
 
 celular = Producto("iPhone", 800, 10)
 print(celular.reposicionar_stock(5))
+
+p1 = Producto("Teclado", 50, 10)
+p2 = Producto("Mouse", 20, 5)
+
+p1.identificar()
+p2.identificar()
