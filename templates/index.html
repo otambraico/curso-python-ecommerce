@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi E-commerce</title>
+    <style>
+        body { font-family: Arial; margin: 40px; background-color: #f4f4f4; }
+        .producto-card { background: rgb(104, 94, 150); padding: 15px; border-radius: 8px; margin-bottom: 10px; box-shadow: 2px 2px 5px #ccc; }
+        .stock-bajo { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🏪 Catálogo Profesional</h1>
+    <hr>
+    
+    {% for p in productos %}
+    <div class="producto-card">
+        <h3>{{ p[1] }}</h3>
+        <p>Precio: <b>${{ p[2] }}</b></p>
+        
+        {% if p[3] == 0 %}
+            <p class="stock-bajo">⚠️ AGOTADO</p>
+        {% else %}
+            <p>Stock disponible: {{ p[3] }} unidades</p>
+        {% endif %}
+
+        {% if p[2] >= 6000 %}
+            <p class="stock-bajo">⭐ Producto Premium</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    </ul><br><a href='/'>Volver al inicio</a>
+
+</body>
+</html>
