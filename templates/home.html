@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio</title>
+        <style>
+            body { font-family: Arial; margin: 40px; background-color: #f4f4f4; }
+        </style>
+    </head>
+    <body>
+        <h1>Bienvenido a la Tienda {{ nombre if nombre else 'Invitado' }}</h1>
+        {% if nombre %}
+            <a href="/logout">Cerrar Sesión</a>
+        {% else %}
+            <a href="/login">Iniciar Sesión</a> o <a href="/registro">Registrarse</a>
+        {% endif %}
+        <hr>
+        <hr>
+            <a href="/productos">Ver Catálogo</a>
+    </body>
+</html>

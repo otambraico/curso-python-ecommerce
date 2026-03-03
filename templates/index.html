@@ -14,9 +14,16 @@
     
     {% for p in productos %}
     <div class="producto-card">
-        <h3>{{ p[1] }}</h3>
-        <p>Precio: <b>${{ p[2] }}</b></p>
-        
+        <h3>{{ p[1] }} (ID: {{ p[0] }})</h3>
+        <p>Precio: ${{ p[2] }}</p>
+        <form action="/borrar/{{ p[0] }}" method="GET" style="display:inline;">
+            <button type="submit" 
+            onclick="return confirm('¿Eliminar?')"
+            style="background-color: red; color: white; cursor: pointer;">
+            Eliminar
+            </button>
+        </form>
+
         {% if p[3] == 0 %}
             <p class="stock-bajo">⚠️ AGOTADO</p>
         {% else %}
