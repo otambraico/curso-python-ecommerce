@@ -6,12 +6,21 @@
         body { font-family: Arial; margin: 40px; background-color: #f4f4f4; }
         .producto-card { background: rgb(104, 94, 150); padding: 15px; border-radius: 8px; margin-bottom: 10px; box-shadow: 2px 2px 5px #ccc; }
         .stock-bajo { color: red; font-weight: bold; }
+        .producto-premium { color: #e9c70a; font-weight: bold; }
     </style>
 </head>
 <body>
     <h1>🏪 Catálogo Profesional</h1>
     <hr>
-    
+     {% with messages = get_flashed_messages() %}
+            {% if messages %}
+             <div style="background-color: #d4edda; color: #155724; padding: 15px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 20px;">
+             {% for message in messages %}
+             {{ message }}
+             {% endfor %}
+             </div>
+             {% endif %}
+        {% endwith %}
     {% for p in productos %}
     <div class="producto-card">
         <h3>{{ p[1] }} (ID: {{ p[0] }})</h3>
@@ -31,13 +40,21 @@
         {% endif %}
 
         {% if p[2] >= 6000 %}
-            <p class="stock-bajo">⭐ Producto Premium</p>
+            <p class= "producto-premium">⭐ Producto Premium</p>
         {% endif %}
+
+    <a href="/agregar_carrito/{{ p[0] }}" 
+       style="background-color: green; color: white; padding: 5px; text-decoration: none; border-radius: 3px;">
+       🛒 Añadir al carrito
+    </a>
+       
     </div>
+    
     {% endfor %}
 
     </ul><br><a href='/'>Volver al inicio</a>
     </ul><br><a href='nuevo'>Aquí puede registrar nuevos productos</a>
+    </ul><br><a href='carrito'>Aquí puede revisar el carrito de compras</a>
 
 </body>
 </html>

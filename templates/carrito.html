@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Carrito</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .total { font-size: 1.5em; font-weight: bold; color: green; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🛒 Tu Carrito de Compras</h1>
+    
+    {% if productos %}
+    <table>
+    <tr>
+        <th>Producto</th>
+        <th>Precio Unitario</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+        <th>Acciones</th>
+    </tr>
+    {% for p in productos %}
+    <tr>
+        <td>{{ p.nombre }}</td>
+        <td>${{ p.precio }}</td>
+        <td>{{ p.cantidad }}</td>
+        <td>${{ p.subtotal }}</td>
+        <td>
+            <a href="/eliminar_carrito/{{ p.id }}">➖ Quitar uno</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+    
+    <div class="total">Total a pagar: ${{ total }}</div>
+    <br>
+    <a href="/finalizar_compra" style="padding: 10px; background: blue; color: white; text-decoration: none;">Confirmar Pedido</a>
+    {% else %}
+        <p>Tu carrito está vacío.</p>
+    {% endif %}
+    
+    <br><br>
+    <a href="/productos">Continuar comprando</a>
+</body>
+</html>
